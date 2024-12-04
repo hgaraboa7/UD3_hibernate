@@ -35,7 +35,7 @@ public class Departamentos implements Serializable {
     private String dnombre;
     @Column(name = "loc")
     private String loc;
-    @OneToMany(mappedBy = "deptNo")
+    @OneToMany( mappedBy = "deptNo")
     private List<Empleados> empleadosList;
 
     public Departamentos() {
@@ -99,7 +99,7 @@ public class Departamentos implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.vo.Departamentos[ deptNo=" + deptNo + " ]";
+        return getDnombre();
     }
     
 }

@@ -19,7 +19,11 @@
         <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- debes incluir todas las clases que mapeas-->
-        <!--         <mapping class="modelo.vo.clase"/>        -->
+        <mapping class="modelo.vo.Departamentos"/>    
+        <mapping class="modelo.vo.Empleados"/> 
+        <mapping class="modelo.vo.Aportaciones"/> 
+        <mapping class="modelo.vo.Historicos"/> 
+        <mapping class="modelo.vo.Operativas"/> 
         
     </session-factory>	
 </hibernate-configuration>

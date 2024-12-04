@@ -1,3 +1,6 @@
+
+import controlador.controladorProyectoBase;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
@@ -10,6 +13,6 @@
 public class UD3_ProyectoBase {
 
     public static void main(String[] args) {
-        
+        controladorProyectoBase.iniciar();
     }
 }

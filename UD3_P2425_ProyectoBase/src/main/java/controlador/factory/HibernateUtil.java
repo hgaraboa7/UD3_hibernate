@@ -49,7 +49,7 @@ public class HibernateUtil {
     
     
     
-      public DepartamentoDAO getDepartamentoDAO() {
+      public static DepartamentoDAO getDepartamentoDAO() {
 
         return new DepartamentoDAO();
     }
