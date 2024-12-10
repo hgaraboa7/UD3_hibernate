@@ -41,6 +41,14 @@ public class Departamentos implements Serializable {
     public Departamentos() {
     }
 
+    public Departamentos(Short deptNo, String dnombre, String loc) {
+        this.deptNo = deptNo;
+        this.dnombre = dnombre;
+        this.loc = loc;
+    }
+
+    
+    
     public Departamentos(Short deptNo) {
         this.deptNo = deptNo;
     }

@@ -210,7 +210,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        // TODO add your handling code here:
+       
+        controladorProyectoBase.insertarComprobando();
+        controladorProyectoBase.cargarCombo(); 
+        
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void txtDepNoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepNoFocusLost

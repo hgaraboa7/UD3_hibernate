@@ -39,10 +39,11 @@ public class DepartamentoDAO {
     
 //captura1.2
     
-//ejercicio2 cargar combo y mostrar departamento    
+
 
     public void cargarCombo(Session session, DefaultComboBoxModel modelocombo) {
   
+        modelocombo.removeAllElements();
         //Departamentos d;
         Query q=session.createQuery("Select d from Departamentos d");
         
@@ -56,14 +57,24 @@ public class DepartamentoDAO {
     }
 
    
-      //ejercicio 3 losfocus 
-    //ejercicio 3 insertar modificar y borrar
+     
+   
 
     public Departamentos getDepartamento(Session session, Short numdep) {
     
         return session.get(Departamentos.class, numdep);
         
     }
+    
+     //ejercicio 4 insertar modificar y borrar
+
+    public void insertar(Session session, Short numdep, String loc, String nombre) {
+   
+        //crear primero constructor en el modelo
+        Departamentos d=new Departamentos(numdep,nombre,loc);
+        session.save(d);
+    }
+    
     
     
 

@@ -74,6 +74,7 @@ public class controladorProyectoBase {
                     ventana.getLblTotalEmp());
             HibernateUtil.commitTx(session);
         } catch (Exception ex) {
+            //escribir rollback
             Logger.getLogger(controladorProyectoBase.class.getName()).log(Level.SEVERE, null, ex);
 
         }
@@ -84,6 +85,7 @@ public class controladorProyectoBase {
         if (ventana.getTxtDepNo().getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "faltan datos");
             limpiardatos();
+            return;
         }
         try {
             HibernateUtil.beginTx(session);
@@ -93,13 +95,13 @@ public class controladorProyectoBase {
             if(dep!=null){
                 ventana.getTxtNombre().setText(dep.getDnombre());
                 ventana.getTxtLocalidad().setText(dep.getLoc());
-                            }else{
-                limpiardatos();
-            }
+                            }
             HibernateUtil.commitTx(session);
         } catch (NumberFormatException ex) {
+            //escribir rollback
             Logger.getLogger(controladorProyectoBase.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex1) {
+            //escribir rollback
             Logger.getLogger(controladorProyectoBase.class.getName()).log(Level.SEVERE, null, ex1);
         }
 
@@ -110,6 +112,31 @@ public class controladorProyectoBase {
         ventana.getTxtNombre().setText("");
         ventana.getTxtLocalidad().setText("");
 
+    }
+
+    public static void insertarComprobando() {
+  
+        if(ventana.getTxtDepNo().getText().isEmpty()||ventana.getTxtNombre().getText().isEmpty()||ventana.getTxtLocalidad().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "faltan datos");
+            return;
+        }
+        try{
+            HibernateUtil.beginTx(session);
+            Departamentos d=depDAO.getDepartamento(session, Short.valueOf(ventana.getTxtDepNo().getText()));
+            if(d!=null){
+                JOptionPane.showMessageDialog(null, "no existe el departamento");
+            }else{
+                depDAO.insertar(session, 
+                       Short.valueOf(ventana.getTxtDepNo().getText()),
+                        ventana.getTxtLocalidad().getText(),
+                        ventana.getTxtNombre().getText());
+                JOptionPane.showMessageDialog(null, "insertado correctamente");
+            }
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            
+        }
+        
     }
 
 }
