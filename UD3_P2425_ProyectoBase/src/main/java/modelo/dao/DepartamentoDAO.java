@@ -58,6 +58,12 @@ public class DepartamentoDAO {
    
       //ejercicio 3 losfocus 
     //ejercicio 3 insertar modificar y borrar
+
+    public Departamentos getDepartamento(Session session, Short numdep) {
+    
+        return session.get(Departamentos.class, numdep);
+        
+    }
     
     
 

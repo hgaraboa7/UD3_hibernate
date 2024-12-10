@@ -1,6 +1,7 @@
 package controlador.factory;
 
 import modelo.dao.DepartamentoDAO;
+import modelo.dao.EmpleadoDAO;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -53,7 +54,10 @@ public class HibernateUtil {
 
         return new DepartamentoDAO();
     }
+public static EmpleadoDAO getEmpleadoDAO() {
 
+        return new EmpleadoDAO();
+    }
     
    
 }
