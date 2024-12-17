@@ -8,7 +8,7 @@ import modelo.vo.AlojaPK;
 import modelo.vo.Cliente;
 import modelo.vo.Hotel;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-12-13T19:37:36", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-12-17T17:58:57", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Aloja.class)
 public class Aloja_ { 
 

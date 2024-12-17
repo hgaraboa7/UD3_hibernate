@@ -1,5 +1,6 @@
 package controlador.factory;
 
+import modelo.dao.AlojaDAO;
 import modelo.dao.ClienteDAO;
 import modelo.dao.HotelDAO;
 import org.hibernate.Session;
@@ -52,5 +53,8 @@ public class HibernateUtil {
 }
     public static ClienteDAO getClienteDAO(){
         return new ClienteDAO();
+    }
+     public static AlojaDAO getAlojaDAO(){
+        return new AlojaDAO();
     }
 }

@@ -108,7 +108,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.vo.Cliente[ codcli=" + codcli + " ]";
+        return codcli+" "+nombre;
     }
     
 }

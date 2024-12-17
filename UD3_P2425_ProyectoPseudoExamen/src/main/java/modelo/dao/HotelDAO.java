@@ -27,6 +27,19 @@ public class HotelDAO {
         
         
     }
+
+    public int comprobarHabitaciones(Session session, Integer numHab, Hotel hotel) {
+ 
+        int numero=-1;
+        if(hotel.getHabdisponibles()<numHab){
+            return numero;
+        }
+        hotel.setHabdisponibles(hotel.getHabdisponibles()-numHab);
+        numero=hotel.getHabdisponibles();
+        session.update(hotel);
+        
+        return numero;
+    }
     
     
     

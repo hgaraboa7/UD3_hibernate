@@ -6,7 +6,9 @@ package vista;
 
 import com.toedter.calendar.JDateChooser;
 import controlador.controladorPrincipal;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import modelo.vo.Hotel;
 
@@ -42,6 +44,8 @@ public class Principal extends javax.swing.JFrame {
         txtNombreCliente = new javax.swing.JTextField();
         txtNumHabitaciones = new javax.swing.JTextField();
         cmbHotel = new javax.swing.JComboBox<>();
+        btnFacturar = new javax.swing.JButton();
+        lblTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -64,6 +68,21 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        txtNumHabitaciones.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNumHabitacionesFocusLost(evt);
+            }
+        });
+
+        btnFacturar.setText("Facturar");
+        btnFacturar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturarActionPerformed(evt);
+            }
+        });
+
+        lblTotal.setText("Total: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,12 +99,16 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(dcFechaEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                .addComponent(dcFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtNumHabitaciones, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                .addComponent(txtNombreCliente, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                .addComponent(txtNombreCliente, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnFacturar)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTotal)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(dcFechaEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                        .addComponent(dcFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,7 +133,11 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)))
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(lblTotal)
+                .addGap(29, 29, 29)
+                .addComponent(btnFacturar)
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,6 +150,14 @@ public class Principal extends javax.swing.JFrame {
     private void txtNombreClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreClienteFocusLost
         controladorPrincipal.existeCliente();
     }//GEN-LAST:event_txtNombreClienteFocusLost
+
+    private void txtNumHabitacionesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNumHabitacionesFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumHabitacionesFocusLost
+
+    private void btnFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarActionPerformed
+        controladorPrincipal.facturar();
+    }//GEN-LAST:event_btnFacturarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,11 +183,20 @@ public class Principal extends javax.swing.JFrame {
     public JTextField getTxtNumHabitaciones() {
         return txtNumHabitaciones;
     }
+
+    public JButton getBtnFacturar() {
+        return btnFacturar;
+    }
+
+    public JLabel getLblTotal() {
+        return lblTotal;
+    }
     
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFacturar;
     private javax.swing.JComboBox<Hotel> cmbHotel;
     private com.toedter.calendar.JDateChooser dcFechaEntrada;
     private com.toedter.calendar.JDateChooser dcFechaSalida;
@@ -160,6 +204,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNumHabitaciones;
     // End of variables declaration//GEN-END:variables

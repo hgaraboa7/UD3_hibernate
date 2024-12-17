@@ -63,6 +63,9 @@ public class Aloja implements Serializable {
         this.alojaPK = new AlojaPK(codcliente, codhotel, fechaentrada);
     }
 
+ 
+    
+
     public AlojaPK getAlojaPK() {
         return alojaPK;
     }
